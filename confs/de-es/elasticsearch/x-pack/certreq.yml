@@ -1,0 +1,35 @@
+instances:
+  - name: "elastic-01"
+    ip: 
+      - "192.168.216.11"
+    dns: 
+      - "elastic-01.ad.csrl.byu.edu"
+      - "elastic-01"
+  - name: "elastic-02"
+    ip: 
+      - "192.168.216.12"
+    dns: 
+      - "elastic-02.ad.csrl.byu.edu"
+      - "elastic-02"
+  - name: "elastic-03"
+    ip: 
+      - "192.168.216.13"
+    dns: 
+      - "elastic-03.ad.csrl.byu.edu"
+      - "elastic-03"
+  - name: "logstash-01"
+    ip: 
+      - "192.168.216.21"
+    dns: 
+      - "logstash-01.ad.csrl.byu.edu"
+      - "logstash-01"
+  - name: "kibana-01"
+    ip: 
+      - "192.168.216.31"
+    dns: 
+      - "kibana-01.ad.csrl.byu.edu"
+      - "kibana-01"
+      - "kibana.ad.csrl.byu.edu"
+      - "kibana"
+
+

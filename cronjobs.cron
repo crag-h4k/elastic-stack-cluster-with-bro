@@ -1,0 +1,4 @@
+#@reboot /usr/bin/python3 /home/dane/de_project/auto_bro.py
+@reboot /usr/bin/python3 /home/dane/it515r-backup/py/main.py
+*/5 * * * * /usr/local/bro/bin/broctl cron
+*/30 * * * * /usr/bin/flock -w 0 /home/dane/it515r-backup/py/cron.lock /usr/bin/python3 /home/dane/it515r-backup/py/main.py
