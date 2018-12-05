@@ -1,14 +1,19 @@
+# Sample Logstash configuration for creating a simple
+# Beats -> Logstash -> Elasticsearch pipeline.
 path.data: /var/lib/logstash
 log.level: info
 path.logs: /var/log/logstash
-
-xpack.monitoring.enabled: true
-xpack.monitoring.elasticsearch.url: ['https://192.168.216.11:9200', 'https://192.168.216.12:9200', 'https://192.168.216.13:9200'] 
-xpack.monitoring.elasticsearch.username: logstash_admin
-xpack.monitoring.elasticsearch.password: a1WO34sH1xF7GROn5RvV
-#xpack.monitoring.exporters.ssl.key: "/etc/logstash/logstash-01.key"
-#xpack.monitoring.exporters.ssl.certificate: "/etc/logstash/logstash-01.crt"
-xpack.monitoring.elasticsearch.ssl.ca: "/etc/logstash/ca.crt"
-xpack.management.logstash.poll_interval: 5s
-xpack.management.pipeline.id: "main"
-#"stress_virt","stress_non-virt"]
+#input {
+#  beats {
+#    port => 5044
+#  }
+#}
+#
+#output {
+#  elasticsearch {
+#    hosts => ["192.168.230.135:9200"]
+#    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    #user => "elastic"
+    #password => "changeme"
+#  }
+#}
