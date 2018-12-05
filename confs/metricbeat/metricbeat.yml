@@ -1,0 +1,19 @@
+metricbeat.config.modules:
+  # Glob pattern for configuration loading
+  path: ${path.config}/modules.d/*.yml
+  # Set to true to enable config reloading
+  reload.enabled: false
+  #
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+  #_source.enabled: false
+tags: ["system-stats"]
+  #
+setup.kibana:
+  host: "192.168.230.135:5601"
+  #
+output.elasticsearch:
+  hosts: ["192.168.230.135:9200"]
+  #username: "elastic"
+  #password: "changeme"
