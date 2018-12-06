@@ -1,0 +1,1655 @@
+2018-12-05 16:42:51,680 - [INFO] - from play.api.Play in main 
+Application started (Prod)
+
+2018-12-05 16:42:51,931 - [INFO] - from play.core.server.AkkaHttpServer in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2018-12-05 16:43:38,293 - [INFO] - from play.core.server.AkkaHttpServer in Thread-2 
+Stopping server...
+
+2018-12-05 16:44:12,647 - [INFO] - from play.api.Play in main 
+Application started (Prod)
+
+2018-12-05 16:44:12,905 - [INFO] - from play.core.server.AkkaHttpServer in main 
+Listening for HTTP on /192.168.230.135:9000
+
+2018-12-05 16:46:38,086 - [INFO] - from play.core.server.AkkaHttpServer in Thread-2 
+Stopping server...
+
+2018-12-05 17:37:57,531 - [INFO] - from play.api.Play in main 
+Application started (Prod)
+
+2018-12-05 17:37:57,847 - [INFO] - from play.core.server.AkkaHttpServer in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2018-12-05 17:38:34,811 - [ERROR] - from application in application-akka.actor.default-dispatcher-2 
+
+
+! @7a681907b - Internal server error, for (POST) [/connect] ->
+ 
+play.api.UnexpectedException: Unexpected exception[IllegalArgumentException: Invalid URL de-elastic:9200/_cluster/health]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:247)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:176)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:251)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:250)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:346)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:345)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:44)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:252)
+	at scala.concurrent.Promise$class.complete(Promise.scala:55)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:157)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.lang.IllegalArgumentException: Invalid URL de-elastic:9200/_cluster/health
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:84)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.url(StandaloneAhcWSClient.scala:42)
+	at play.api.libs.ws.ahc.AhcWSClient.url(AhcWSClient.scala:35)
+	at elastic.HTTPElasticClient.execute(HTTPElasticClient.scala:325)
+	at elastic.HTTPElasticClient.executeRequest(HTTPElasticClient.scala:314)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:23)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:21)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:29)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:12)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:419)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:96)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:89)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:192)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:170)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:211)
+	at play.core.server.AkkaHttpServer.executeAction(AkkaHttpServer.scala:298)
+	at play.core.server.AkkaHttpServer.executeHandler(AkkaHttpServer.scala:254)
+	at play.core.server.AkkaHttpServer.play$core$server$AkkaHttpServer$$handleRequest(AkkaHttpServer.scala:195)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at akka.stream.impl.fusing.MapAsync$$anon$25.onPush(Ops.scala:1194)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:585)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:469)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:560)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor$class.aroundReceive(Actor.scala:517)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:667)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:590)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:559)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:224)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)
+	... 4 common frames omitted
+Caused by: java.lang.IllegalArgumentException: de-elastic:9200/_cluster/health could not be parsed into a proper Uri, missing scheme
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:40)
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:32)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:81)
+	... 45 common frames omitted
+
+2018-12-05 17:38:48,115 - [ERROR] - from application in application-akka.actor.default-dispatcher-10 
+
+
+! @7a6819jp5 - Internal server error, for (POST) [/connect] ->
+ 
+play.api.UnexpectedException: Unexpected exception[IllegalArgumentException: Invalid URL localhost:9200/_cluster/health]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:247)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:176)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:251)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:250)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:346)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:345)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:44)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:252)
+	at scala.concurrent.Promise$class.complete(Promise.scala:55)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:157)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.lang.IllegalArgumentException: Invalid URL localhost:9200/_cluster/health
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:84)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.url(StandaloneAhcWSClient.scala:42)
+	at play.api.libs.ws.ahc.AhcWSClient.url(AhcWSClient.scala:35)
+	at elastic.HTTPElasticClient.execute(HTTPElasticClient.scala:325)
+	at elastic.HTTPElasticClient.executeRequest(HTTPElasticClient.scala:314)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:23)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:21)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:29)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:12)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:419)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:96)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:89)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:192)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:170)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:211)
+	at play.core.server.AkkaHttpServer.executeAction(AkkaHttpServer.scala:298)
+	at play.core.server.AkkaHttpServer.executeHandler(AkkaHttpServer.scala:254)
+	at play.core.server.AkkaHttpServer.play$core$server$AkkaHttpServer$$handleRequest(AkkaHttpServer.scala:195)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at akka.stream.impl.fusing.MapAsync$$anon$25.onPush(Ops.scala:1194)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:585)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:469)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:560)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor$class.aroundReceive(Actor.scala:517)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:667)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:590)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:559)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:224)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)
+	... 4 common frames omitted
+Caused by: java.lang.IllegalArgumentException: localhost:9200/_cluster/health could not be parsed into a proper Uri, missing host
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:43)
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:32)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:81)
+	... 45 common frames omitted
+
+2018-12-05 17:39:11,385 - [INFO] - from play.core.server.AkkaHttpServer in Thread-2 
+Stopping server...
+
+2018-12-05 17:47:00,794 - [INFO] - from play.api.Play in main 
+Application started (Prod)
+
+2018-12-05 17:47:01,047 - [INFO] - from play.core.server.AkkaHttpServer in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2018-12-05 17:47:59,279 - [ERROR] - from application in application-akka.actor.default-dispatcher-19 
+
+
+! @7a682f37j - Internal server error, for (POST) [/connect] ->
+ 
+play.api.UnexpectedException: Unexpected exception[IllegalArgumentException: Invalid URL de-elastic:9200/_cluster/health]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:247)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:176)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:251)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:250)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:346)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:345)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:44)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:252)
+	at scala.concurrent.Promise$class.complete(Promise.scala:55)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:157)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.lang.IllegalArgumentException: Invalid URL de-elastic:9200/_cluster/health
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:84)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.url(StandaloneAhcWSClient.scala:42)
+	at play.api.libs.ws.ahc.AhcWSClient.url(AhcWSClient.scala:35)
+	at elastic.HTTPElasticClient.execute(HTTPElasticClient.scala:325)
+	at elastic.HTTPElasticClient.executeRequest(HTTPElasticClient.scala:314)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:23)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:21)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:29)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:12)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:419)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:96)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:89)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:192)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:170)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:211)
+	at play.core.server.AkkaHttpServer.executeAction(AkkaHttpServer.scala:298)
+	at play.core.server.AkkaHttpServer.executeHandler(AkkaHttpServer.scala:254)
+	at play.core.server.AkkaHttpServer.play$core$server$AkkaHttpServer$$handleRequest(AkkaHttpServer.scala:195)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at akka.stream.impl.fusing.MapAsync$$anon$25.onPush(Ops.scala:1194)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:585)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:469)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:560)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor$class.aroundReceive(Actor.scala:517)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:667)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:590)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:559)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:224)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)
+	... 4 common frames omitted
+Caused by: java.lang.IllegalArgumentException: de-elastic:9200/_cluster/health could not be parsed into a proper Uri, missing scheme
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:40)
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:32)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:81)
+	... 45 common frames omitted
+
+2018-12-05 17:49:12,163 - [INFO] - from play.core.server.AkkaHttpServer in Thread-2 
+Stopping server...
+
+2018-12-05 18:09:42,552 - [INFO] - from play.api.Play in main 
+Application started (Prod)
+
+2018-12-05 18:09:42,810 - [INFO] - from play.core.server.AkkaHttpServer in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2018-12-05 18:09:57,704 - [ERROR] - from application in application-akka.actor.default-dispatcher-5 
+
+
+! @7a685c3gb - Internal server error, for (POST) [/connect] ->
+ 
+play.api.UnexpectedException: Unexpected exception[IllegalArgumentException: Invalid URL de-elastic:9200/_cluster/health]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:247)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:176)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:251)
+	at play.core.server.AkkaHttpServer$$anonfun$13$$anonfun$apply$1.applyOrElse(AkkaHttpServer.scala:250)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:346)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:345)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:44)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:252)
+	at scala.concurrent.Promise$class.complete(Promise.scala:55)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:157)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:36)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.lang.IllegalArgumentException: Invalid URL de-elastic:9200/_cluster/health
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:84)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.url(StandaloneAhcWSClient.scala:42)
+	at play.api.libs.ws.ahc.AhcWSClient.url(AhcWSClient.scala:35)
+	at elastic.HTTPElasticClient.execute(HTTPElasticClient.scala:325)
+	at elastic.HTTPElasticClient.executeRequest(HTTPElasticClient.scala:314)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:23)
+	at controllers.ConnectController$$anonfun$connect$1.apply(ConnectController.scala:21)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:29)
+	at controllers.auth.AuthAction.invokeBlock(AuthAction.scala:12)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:419)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:96)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:89)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2$$anonfun$1.apply(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:192)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:174)
+	at play.api.libs.streams.StrictAccumulator$$anonfun$mapFuture$2.apply(Accumulator.scala:170)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at scala.Function1$$anonfun$andThen$1.apply(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:211)
+	at play.core.server.AkkaHttpServer.executeAction(AkkaHttpServer.scala:298)
+	at play.core.server.AkkaHttpServer.executeHandler(AkkaHttpServer.scala:254)
+	at play.core.server.AkkaHttpServer.play$core$server$AkkaHttpServer$$handleRequest(AkkaHttpServer.scala:195)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at play.core.server.AkkaHttpServer$$anonfun$5.apply(AkkaHttpServer.scala:106)
+	at akka.stream.impl.fusing.MapAsync$$anon$25.onPush(Ops.scala:1194)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:585)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:469)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:560)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor$class.aroundReceive(Actor.scala:517)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:667)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:590)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:559)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:224)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)
+	... 4 common frames omitted
+Caused by: java.lang.IllegalArgumentException: de-elastic:9200/_cluster/health could not be parsed into a proper Uri, missing scheme
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:40)
+	at play.shaded.ahc.org.asynchttpclient.uri.Uri.create(Uri.java:32)
+	at play.api.libs.ws.ahc.StandaloneAhcWSClient.validate(StandaloneAhcWSClient.scala:81)
+	... 45 common frames omitted
+
+2018-12-05 18:21:59,568 - [INFO] - from play.core.server.AkkaHttpServer in Thread-2 
+Stopping server...
+
+2018-12-05 18:34:00,492 - [INFO] - from play.api.Play in main 
+Application started (Prod)
+
+2018-12-05 18:34:00,754 - [INFO] - from play.core.server.AkkaHttpServer in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2018-12-05 18:37:44,198 - [ERROR] - from application in ForkJoinPool-1-worker-5 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:37:44,198 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:37:45,179 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:37:45,181 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:37:45,184 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:37:59,203 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:37:59,206 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:01,155 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:01,158 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:01,170 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:14,214 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:14,215 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:17,151 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:17,160 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:17,166 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:29,214 - [ERROR] - from application in ForkJoinPool-1-worker-5 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:29,214 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:33,152 - [ERROR] - from application in ForkJoinPool-1-worker-5 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:33,156 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:33,159 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:44,213 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:44,215 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:49,152 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:49,159 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:49,161 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:59,214 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:38:59,218 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:05,155 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:05,156 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:05,156 - [ERROR] - from application in ForkJoinPool-1-worker-5 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:14,230 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:14,233 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:21,151 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:21,157 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:21,161 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:29,238 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:29,242 - [ERROR] - from application in ForkJoinPool-1-worker-5 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:37,163 - [ERROR] - from application in ForkJoinPool-1-worker-3 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:37,163 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:37,164 - [ERROR] - from application in ForkJoinPool-1-worker-7 
+Error processing request [path: /overview, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:44,235 - [ERROR] - from application in ForkJoinPool-1-worker-1 
+Error processing request [path: /cluster_changes, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:44,238 - [ERROR] - from application in ForkJoinPool-1-worker-5 
+Error processing request [path: /navbar, body: {"host":"http://de-elastic:9200"}]
+java.net.ConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at play.shaded.ahc.org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:168)
+	at play.shaded.ahc.org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at play.shaded.ahc.org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:507)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:500)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:479)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:420)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:122)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:278)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:294)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:634)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:581)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:498)
+	at play.shaded.ahc.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:460)
+	at play.shaded.ahc.io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:131)
+	at play.shaded.ahc.io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: play.shaded.ahc.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: de-elastic/192.168.230.135:9200
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at play.shaded.ahc.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:259)
+	at play.shaded.ahc.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:291)
+	... 7 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	... 11 common frames omitted
+
+2018-12-05 18:39:49,422 - [INFO] - from play.core.server.AkkaHttpServer in Thread-2 
+Stopping server...
+
+2018-12-05 18:55:13,956 - [INFO] - from play.api.Play in main 
+Application started (Prod)
+
+2018-12-05 18:55:14,306 - [INFO] - from play.core.server.AkkaHttpServer in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2018-12-05 19:23:00,097 - [INFO] - from play.core.server.AkkaHttpServer in Thread-2 
+Stopping server...
+
