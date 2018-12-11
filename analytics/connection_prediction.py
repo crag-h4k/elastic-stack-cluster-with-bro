@@ -1,5 +1,7 @@
-from bat import bro_log_reader
 from datetime import timedelta
+from sys import argv
+
+from bat import bro_log_reader
 from colorama import Fore, Style
 
 
@@ -10,21 +12,22 @@ class connection:
         self.ts = ts
         self.prediction = prediction
 
-def get_connections(reader):
+def get_connections(reader, cleaned=False):
     conns = []
     for row in reader.readrows():
         orig = row.get('id.orig_h')
         dest = row.get('id.resp_h')
         ts = row.get('ts')
-        '''
-        if (orig == '192.168.230.115') and (dest == '192.168.230.135' or dest =='192.168.230.137'):
-            continue
-        elif (orig == '192.168.230.135' or orig =='192.168.230.137') and (dest == '192.168.230.115'):
-            continue
+        if cleaned == True: 
+            if (orig == '192.168.230.115') and (dest == '192.168.230.135' or dest =='192.168.230.137'):
+                continue
+            elif (orig == '192.168.230.135' or orig =='192.168.230.137') and (dest == '192.168.230.115'):
+                continue
+            else:
+                conns.append(connection(orig, dest, ts))
         else:
-            ssh_conns.append(connection(orig, dest, ts))
-        '''
-        conns.append(connection(orig, dest, ts))
+            conns.append(connection(orig, dest, ts))
+
     return conns
 
 def group_unique(connections):
@@ -52,13 +55,14 @@ def check_days_ago(string_dt):
         return 'in ' + string_dt
 
 def predict_connection(grouped_connections):   
+    
     predicted = []
-    sep = '----'
-    for conns in grouped:
+    
+    for conns in grouped_connections:
         try:
             # timedelta calculation found here:
             # https://stackoverflow.com/questions/3617170/average-timedelta-in-list
-            timedeltas = [conns[i].ts - conns[i-1].ts for i in range(1, len(conns))]
+            timedeltas = [conns[i-1].ts - conns[i].ts for i in range(1, len(conns))]
             avg = sum(timedeltas, timedelta(0)) / len(timedeltas)
             
             origin= conns[0].orig 
@@ -77,8 +81,10 @@ def predict_connection(grouped_connections):
     return predicted
 
 if __name__ == '__main__':
-    reader = bro_log_reader.BroLogReader('./giant/ssh.log')
+    
+    log_loc = argv[1]
+    reader = bro_log_reader.BroLogReader(log_loc)
     ssh_connections = get_connections(reader)
-    grouped = group_unique(ssh_connections)
+
     print(len(ssh_connections), 'ssh connections')
-    predict_connection(grouped)
+    predict_connection(group_unique(ssh_connections))
