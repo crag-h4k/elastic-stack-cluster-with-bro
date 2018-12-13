@@ -1,0 +1,10 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	weird
+#open	2018-12-12-15-19-02
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	name	addl	notice	peer
+#types	time	string	addr	port	addr	port	string	string	bool	string
+1544653142.392680	C12Xpe32fGdPkC9f5d	192.168.174.129	58284	31.13.70.7	443	truncated_tcp_payload	-	F	bro
+#close	2018-12-12-15-19-14
